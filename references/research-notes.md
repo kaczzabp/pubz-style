@@ -101,14 +101,90 @@ From the contact sheets:
 - Captions are large, bold, white, and heavily outlined. Examples: "funny?",
   "you ready?", "see it now!", "are you serious?", "BUILD!", "alright i'll-",
   "one day shipping".
-- Captions sit at bottom center or near the speaker, and often use a comic-style
-  font with a black stroke.
+- Captions sit at bottom center or near the speaker. The face matches **Bagel
+  Fat One**; see "Caption font identification" below.
 - Meme overlays include cartoon faces, distorted characters, and reaction images
   composited over gameplay.
 - The game UI remains visible. The edit does not hide the fact that it is a game.
 - Framing is aggressive: tight crops, sniper scopes, crash zooms, and low angles.
 - Color is saturated and high-contrast, but the game's original look is still
   recognizable.
+
+## Caption font identification
+
+The caption face was identified on 2026-10-27 by glyph comparison, not by a
+statement from Pubz. Four lines from two videos were used:
+
+| Source | Text | Treatment |
+|---|---|---|
+| Skybasing, 45.5s | "I'll kill ya" | White fill, violet glow, black shadow |
+| Fortnite, 34.0s | "the way that the" | White fill, black stroke |
+| Fortnite, 35.0s | "last." | White fill, black stroke |
+| Fortnite, 37.0s | "a rift this time" | White fill, black stroke |
+
+Method:
+
+1. Extract 720p frames with FFmpeg.
+2. Threshold the white fill to separate the glyphs from the stroke and gameplay.
+3. Segment the glyphs and measure ink width and height for each letter.
+4. Render the same strings in 26 candidate font files (Google Fonts and system
+   fonts) at several weights.
+5. Compare whole-string width/height ratios, per-glyph aspect ratios, per-glyph
+   mask overlap, and visual overlays at matched height.
+
+Result: **Bagel Fat One** ([Google Fonts](https://fonts.google.com/specimen/Bagel+Fat+One),
+SIL OFL 1.1, by Kyungwon Kim and JAMO; source
+[JAMO-TYPEFACE/BagelFat](https://github.com/JAMO-TYPEFACE/BagelFat)). The font
+has one weight.
+
+| String | Observed width/height | Bagel Fat One | Difference |
+|---|---:|---:|---:|
+| "I'll kill ya" | 3.85 | 3.73 | -3% |
+| "last." | 2.62 | 2.67 | +2% |
+| "the way that the" | 8.34 | 7.96 | -5% |
+| "a rift this time" | 8.64 | 8.42 | -3% |
+
+Per-glyph aspect ratios (width / height):
+
+| Glyph | Observed | Bagel Fat One |
+|---|---:|---:|
+| `a` | 0.93 | 0.96 |
+| `y` | 0.68 | 0.72 |
+| `k` | 0.62 | 0.71 |
+| `l` | 0.25 | 0.25 |
+| `I` | 0.27 | 0.28 |
+
+The distinctive shapes agree: a single-storey `a` with a very small counter, a
+`y` whose descender hooks left, a `t` with a curved foot, an `e` with a
+horizontal bar, and a `k` whose arm and leg collapse into a compact blob.
+
+The `k` is the weakest metric: Bagel Fat One's `k` is about 14% wider relative
+to its height. At native 720p that is only about 4-5px, consistent with the
+black stroke and compression eating into the thin right edge. Every alternative
+was worse on the `a`, `y`, `t`, and `e`.
+
+Other candidates were rejected on shape, not just width:
+
+- **Lilita One** — right genre, but lighter and more geometric; `a` counter is
+  larger, `y` tail is straighter, `t` foot is flat.
+- **Chewy** — handwritten and narrower; `e`, `f`, and `t` do not match.
+- **Modak** — far heavier; `I` and `l` have flared feet.
+- **Cherry Bomb One** — flared `I` and a wider `k`.
+- **SourGummy** — larger counters, wider overall.
+- **Baloo 2** — lighter, different `a` and `k`.
+- **Sniglet** — much wider and softer.
+- **DynaPuff** — much lighter.
+
+Caveats:
+
+- Video compression and the white-fill threshold erode the glyph edges, so the
+  measured ratios can drift a few percent.
+- Pubz has not publicly confirmed the font. Treat this as a high-confidence
+  visual identification, not a forensic match.
+- Only captions were matched. The intro card and thumbnail type may use a
+  different face.
+- Bagel Fat One is OFL 1.1, so it can be used commercially and embedded in
+  videos. The font file is not redistributed in this repository.
 
 ## Transcript observations
 
@@ -156,10 +232,14 @@ Each chapter is a comedic or gameplay unit with its own setup and payoff.
 - The videos are structured as gameplay/bit chapters, not just highlight reels.
 - The channel openly labels the style with words like "overstimulating",
   "brainrot", "laced", "fried", and "post lobotomy".
+- The caption face closely matches Bagel Fat One. The plain and violet-glow
+  treatments both use the same face.
 
 ## What is not confirmed
 
 - Which NLE or plugins Pubz uses. This skill does not assume Premiere or Resolve.
+- The exact caption font, as confirmed by Pubz. The identification is visual.
+  The intro card and thumbnail type may use a different face.
 - Exact cut counts. Scene detection is an approximation.
 - The full distribution across all 130 videos. Only two short samples were
   measured.

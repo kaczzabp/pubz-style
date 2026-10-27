@@ -23,7 +23,8 @@ Edit the attached recording into a **[TARGET LENGTH]** YouTube video in a
 ## Style
 
 - Rapid hard cuts, punch-ins, crash zooms, and shakes on impact.
-- Bold white captions with black stroke and keyword highlights.
+- Bold white captions in Bagel Fat One (or the closest fallback), with black
+  stroke and keyword highlights.
 - Meme overlays timed to the joke, not wallpaper.
 - Layered SFX, music drops, and occasional silence before punchlines.
 - Running bits and callbacks; end on a button, not a generic outro.

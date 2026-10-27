@@ -18,7 +18,7 @@ intentionally exhausting, but never random.
 | Pacing | Very fast; visual changes roughly every 0.5-2 seconds in action |
 | Cuts | Hard cuts, mid-word cuts, match cuts, abrupt scene changes |
 | Camera | Punch-ins, crash zooms, shakes, split-screen, picture-in-picture |
-| Captions | Bold white with black stroke; short phrases; keyword highlight |
+| Captions | Bagel Fat One; bold white with black stroke; short phrases; keyword highlight |
 | Memes | Frequent but timed; reaction images, cartoons, distorted faces, GIFs |
 | SFX | Dense layer of impacts, whooshes, record scratches, meme sounds |
 | Music | High-energy tracks, abrupt drops, silence before punchlines |
@@ -58,6 +58,8 @@ Visual observations from extracted frames:
 - Gameplay is saturated and high-contrast, with the game UI left visible.
 - Captions are large, bold, white, and heavily outlined, often at bottom center:
   "funny?", "you ready?", "see it now!", "are you serious?", "BUILD!".
+- The caption face matches **Bagel Fat One** (Google Fonts, SIL OFL 1.1). See
+  [Caption system](#caption-system) for evidence, fallbacks, and styling.
 - Meme images and cartoon faces are composited over gameplay and characters.
 - Sniper scopes, crash zooms, and tight crops are used as punctuation.
 - The edit is comfortable cutting in the middle of a line or a movement.
@@ -132,14 +134,61 @@ central running joke that returns.
 
 ## Caption system
 
+### Font
+
+The caption face matches **[Bagel Fat One](https://fonts.google.com/specimen/Bagel+Fat+One)**
+(Google Fonts, SIL OFL 1.1, by Kyungwon Kim and JAMO). It is a single-weight,
+very heavy rounded display face. The match is based on four caption lines from
+two videos; see `references/research-notes.md` for the method and caveats.
+
+Fallbacks, in order:
+
+1. **Lilita One** — same genre, lighter and more geometric.
+2. **Cherry Bomb One** — heavier and wider.
+3. **Baloo 2 ExtraBold** — softer and lighter.
+4. **Modak** — much heavier; use for impact words only.
+5. **Arial Rounded MT Bold** — system fallback; its `a` is double-storey, so it
+   reads differently.
+
+Do not substitute a default sans (Arial, Roboto, Montserrat) unless the user
+asks for it. The rounded, heavy silhouette is most of the look.
+
+### Treatment
+
+Two treatments appear in the reference videos:
+
+| Treatment | Use | Look |
+|---|---|---|
+| Plain | Default dialogue and narration | White fill, heavy black stroke, soft black shadow |
+| Styled | Punchlines, threats, stylized bits | White fill, violet-blue glow or stroke, black shadow |
+
+Details:
+
+- **Size:** the white glyphs are roughly 8-11% of frame height in the sampled
+  720p frames (about 60-75px). Match the proportion, not a fixed point size.
+- **Stroke:** heavy; about 4-6px at 720p, scaled with the type.
+- **Glow:** violet-blue, around `#6D3AC4`; keep it outside the white fill so
+  the words stay crisp.
+- **Shadow:** short, soft, black; do not use a long directional drop shadow.
+- **Placement:** bottom center, around 65-80% of frame height. Keep clear of the
+  kill feed, crosshair, ammo counter, and subtitles.
+- **Case:** Pubz mostly uses lowercase or sentence case, even on loud lines. The
+  energy comes from size, color, and timing. All caps is an option for a single
+  impact word, not the default.
+- **Line count:** one line where possible; two short lines only when the phrase
+  needs it.
+- **Tracking:** tight. Do not add wide letter spacing; the sampled lines match
+  the font's natural spacing within about 5%.
+
+### Rules
+
 - Caption every spoken line that matters to the joke or story.
 - 2-6 words per card. Break at natural phrase boundaries.
-- Default: bold white, heavy black stroke, bottom center, slight shadow.
-- Highlight the keyword in one accent color, e.g. yellow, red, or cyan.
-- Use all caps for screams and impact lines; mixed case for deadpan lines.
-- Put captions near the speaker when the frame is busy, but keep them consistent.
+- Highlight one keyword with an accent color only when the line needs it.
 - Do not caption every breath, every "um", or the entire transcript.
 - Check sync after every cut. Captions drift when the timeline changes.
+- If Bagel Fat One is missing, install it before styling. A fallback is better
+  than a generic sans, but it will not look the same.
 
 ## Meme system
 

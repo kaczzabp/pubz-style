@@ -119,9 +119,14 @@ If a section feels exhausting, remove effects before removing story.
 
 - Caption every spoken line that matters to the joke or story.
 - Use 2-6 words per card; break at natural phrase boundaries.
+- Default font: **Bagel Fat One** (free, SIL OFL). Match its tight spacing and
+  heavy rounded silhouette. Fallbacks: Lilita One, Cherry Bomb One, Baloo 2
+  ExtraBold. See `references/style-guide.md`.
 - Default style: bold white text, heavy black stroke, bottom center, slight
-  shadow. Highlight the keyword in one accent color.
-- Use all caps for screams and impact lines; use mixed case for deadpan lines.
+  shadow. Highlight the keyword in one accent color. For punchlines, use white
+  fill with a violet-blue glow and black shadow.
+- Use lowercase or sentence case by default, as the reference does. All caps is
+  an option for a single impact word, not the whole caption.
 - Do not caption every breath or use a full transcript wall.
 - Check sync after every cut; captions drift when the timeline changes.
 

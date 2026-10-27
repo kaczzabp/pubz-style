@@ -122,8 +122,9 @@ Research date: 2026-10-27.
 - Two short samples were measured with FFmpeg scene detection:
   - Fortnite (90s): 92 visual changes at threshold 0.3, median 0.53s.
   - Skybasing (120s): 59 visual changes at threshold 0.3, median 1.30s.
-- Captions are bold white with black stroke; meme overlays are composited over
-  gameplay; the game UI stays visible.
+- Captions match **Bagel Fat One** (Google Fonts, SIL OFL 1.1), most often white
+  with a black stroke; punchlines add a violet-blue glow. Meme overlays are
+  composited over gameplay; the game UI stays visible.
 - The videos are structured as 6-13 gameplay/bit chapters, not a traditional
   three-act story.
 

@@ -56,6 +56,8 @@ Questions:
 - Is the caption a full sentence or 2-6 words?
 - Where is it placed? Does it move?
 - What font weight, stroke, color, and highlight?
+- Does it match Bagel Fat One? Compare `a`, `y`, `t`, and `e` before naming a
+  different font.
 - Are captions on every line, only jokes, or only loud lines?
 - Does the caption ever cover gameplay UI?
 
