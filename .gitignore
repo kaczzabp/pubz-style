@@ -1,0 +1,34 @@
+# Local media and project files
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.wav
+*.mp3
+*.aiff
+*.flac
+*.prproj
+*.drp
+*.fcpxml
+*.zip
+*.7z
+*.rar
+
+# Keep the asset folders, ignore their contents
+assets/memes/*
+!assets/memes/.gitkeep
+assets/sfx/*
+!assets/sfx/.gitkeep
+assets/music/*
+!assets/music/.gitkeep
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor junk
+.vscode/
+.idea/
+*.log
